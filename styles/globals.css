@@ -1,7 +1,41 @@
+:root{
+  --background: white;
+  --foreground: rgb(1,24,39,1);
+  --themeToggle: rgb(248, 225, 122);
+  --themeToggleBg: rgb(248, 225, 122);
+  --themeHighlight: rgb(211, 211, 211, 0.7);
+  --textHighlight: #6366ff;
+  --textColor: rgb(17,24,39,1);
+  --textGray: rgb(180, 176, 176);
+  --themeLightOrange: #e0a434;
+  --themeLightPurple: #6366ff;
+  --iconColor: rgb(17,24,39,1);
+}
+
+[data-theme='dark'] {
+  --background: rgb(17,24,39,1);
+  --foreground: white;
+  --themeToggle:  rgb(119, 115, 115);
+  --themeHighlight: rgb(29, 38, 58, 0.5);
+  --textHighlight: #6366ff;
+  --textColor: white;
+  --textGray: rgb(180, 176, 176);
+  --themeLightOrange: #ebc887;
+  --themeLightPurple: #6366ff;
+  --iconColor: white;
+
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  background-color: var(--background)!important;
+}
+
+body p, h1, h2, h3, h4, h5 a {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
 }
 
 a {
@@ -15,4 +49,167 @@ a {
 
 nav{
   padding: 0 2rem;
+}
+
+.container {
+  padding: 0 2rem;
+  position: relative;
+  background-color: var(--background)!important;
+}
+
+.background-wrapper{
+  opacity: .3!important;
+  width: 600px; 
+  height: 600px;
+  margin: 0 auto;
+  z-index: -1;
+} 
+
+.background-wrapper .background-blur-purple{
+  background: radial-gradient(closest-side, var(--themeLightOrange),rgba(233,168,2,0)) !important;
+  -webkit-animation: traverse-up-right 12s ease-in-out infinite alternate !important;
+  animation: traverse-up-right 12s ease-in-out infinite alternate !important;
+  z-index: -1;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 50px;
+
+}
+
+.background-wrapper .background-blur-green{
+  background: radial-gradient(closest-side,var(--themeLightPurple),rgba(8, 204, 122, 0)) !important;
+  -webkit-animation: traverse-up-right 12s ease-in-out infinite alternate !important;
+  animation: traverse-up-left 12s ease-in-out infinite alternate !important;
+  z-index: -1;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 10px;
+}
+
+.themeToggle {
+  border-radius: 25%;
+  font-size: 25px;
+  color: var(--themeToggle);
+  background-color: var(--themeHighlight);
+  border: none;
+  padding: 5px 10px;
+}
+.outerBtn{
+  border: solid 2px var(--background);
+  border-radius: 25%;
+  padding: 5px;
+}
+
+.outerBtn:hover{
+  border: solid 2px var(--themeHighlight);
+  border-radius: 25%;
+  padding: 5px;
+  transition-property: all;
+  transition-duration: .4s;
+}
+
+.nigelParalax{
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  width: 100%; 
+  display: block;
+  margin-top: 140px;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+.paralax-layer{
+  background-position: bottom center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  z-index: 10;
+
+}
+
+.backColor-layer{
+  background-color: var(--themeHighlight);
+  width: 400px;
+  height: 400px;
+}
+
+.foreground-layer{
+  background-image: url("../images/nigelBackground.jpg");
+  margin: 102px 45px;
+}
+
+.background-layer{
+  background-image: url("../images/nigelUitgeknipt.png");
+  margin: 102px 45px;
+
+}
+
+.text-layer{
+  left: 50%;
+  width: 40vw;
+  top: 8vh;
+  z-index: 10;
+
+}
+
+.text-layer h5{
+  color: var(--textHighlight);
+}
+
+.text-layer h1{
+  color: var(--textColor);
+}
+
+.text-layer h4{
+  color: var(--textGray);
+}
+
+.build-by{
+  color: var(--textHighlight);
+}
+
+.navbar-brand{
+  border: solid 2px var(--iconColor);
+  padding: 5px;
+}
+
+nav{
+  background-color: var(--background)!important;
+}
+
+nav a{
+  font-size: 20px;
+  color:  var(--foreground) !important;
+
+}
+
+@-webkit-keyframes traverse-up-left {
+	to {
+		transform: translateY(-200px) translateX(-350px) rotate(180deg)
+	}
+}
+
+@keyframes traverse-up-left {
+	to {
+		transform: translateY(-200px) translateX(-350px) rotate(180deg)
+	}
+}
+
+@-webkit-keyframes traverse-up-right {
+	to {
+		transform: translateY(-300px) translateX(300px) rotate(1turn)
+	}
+}
+
+@keyframes traverse-up-right {
+	to {
+		transform: translateY(-300px) translateX(300px) rotate(1turn)
+	}
 }
